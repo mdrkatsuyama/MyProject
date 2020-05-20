@@ -11,22 +11,9 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-DATABASES['default'] = dj_database_url.config()
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-STATIC_ROOT = 'staticfiles'
-
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
 
 
 # Quick-start development settings - unsuitable for production
@@ -36,7 +23,7 @@ except ImportError:
 SECRET_KEY = '8hpd_u*%ne7#wsr113xz%y(2#5yii59dzwaxhzcbx(6t28)+75'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False   #  True
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -87,12 +74,12 @@ WSGI_APPLICATION = 'proj01.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 # Password validation
