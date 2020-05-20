@@ -2,19 +2,38 @@
 <html lang="ja">
 <head>
 <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8" />
-<title>RoutePredicter</title>
+<title>画像解析</title>
     <style>
         body{
             text-align : center ;
+            font-size: 20px;
+        }
+        .btn-square-shadow {
+              display: inline-block;
+              padding: 0.5em 1em;
+              text-decoration: none;
+              background: #668ad8;/*ボタン色*/
+              color: #FFF;
+              border-bottom: solid 4px #627295;
+              border-radius: 3px;
+              font-size: 20px;
+            }
+        .btn-square-shadow:active {
+          /*ボタンを押したとき*/
+          -webkit-transform: translateY(4px);
+          transform: translateY(4px);/*下に動く*/
+          box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+          border-bottom: none;
         }
     </style>
 </head>
 <body>
-    <h4>Please upload your file.(csv,xlsx)</h4>
+    <h2>Upload your PDF file.</h2>
+    <hr>
     <form method="POST" enctype="multipart/form-data">
 	{% csrf_token %}
 	{{ form.as_p }}
-      <button type="submit">Route Predict</button>
+      <button type="submit" class="btn-square-shadow">解析</button>
     </form>
 </body>
 </html>
