@@ -10,7 +10,23 @@ import json
 import sys
 
 # ------------------------------------------------------------------
+from .opencv import get_opencv
 from .route import get_route
+
+def opencv(request, status=None):
+    if request.method == 'POST':
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            sys.stderr.write("*** file_upload *** aaa ***\n")
+            handle_uploaded_file(request.FILES['file'])
+            file_obj = request.FILES['file']
+            filename = 'media/documents/' + file_obj.name
+            sys.stderr.write(file_obj.name + "\n")
+            result = get_opencv(filename);
+            return render(request, 'file_upload/res.html', result)
+    else:
+        form = UploadFileForm()
+    return render(request, 'file_upload/upload.html', {'form': form})
 
 
 def file_upload(request, status=None):
