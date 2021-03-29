@@ -61,7 +61,7 @@ pyasn1-modules==0.2.8
 pycosat==0.6.3
 pycparser==2.20
 pygeocoder==1.2.5
-Pygments==2.6.1
+Pygments==2.7.4
 pyOpenSSL==19.1.0
 pyparsing==2.4.7
 pyrsistent==0.16.0
